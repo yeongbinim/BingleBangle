@@ -245,7 +245,7 @@
 
     function stopGameLoop()
     {
-        clearInterval(gameLoopThread);
+        window.clearTimeout(gameLoopThread);
         LoopStarted = false;
     }
 
@@ -319,7 +319,7 @@
         displayAll();
         moveEnemy();
         moveShot();
-        gameLoopThread = setTimeout(gameLoop,threadSpeed);
+        gameLoopThread = window.setTimeout(gameLoop,threadSpeed);
     }
     function moveShot(){
         for(i=0;i<shot.length;i++){
