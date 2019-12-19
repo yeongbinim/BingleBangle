@@ -39,7 +39,7 @@
           </tr>
           <tr class="controlTR" style="height:50px;">
             <td class="controlTD" style="background-color:rgba(255, 255, 255, 0.2);width:50px;text-align:center;" ontouchstart="getMouseOver('Left')" ontouchend="getMouseOut('Left')" onmouseover="getMouseOver('Left')" onmouseout="getMouseOut('Left')">←</td>
-            <td class="controlTD" style="background-color:rgba(255, 255, 255, 0.2);width:50px;text-align:center;" onmousedown="getMouseDown('Ent')">Ent</td>
+            <td class="controlTD" style="background-color:rgba(255, 255, 255, 0.2);width:50px;text-align:center;" onmousedown= "getMouseDown('Ent')">Ent</td>
             <td class="controlTD" style="background-color:rgba(255, 255, 255, 0.2);width:50px;text-align:center;" ontouchstart="getMouseOver('Right')" ontouchend="getMouseOut('Right')" onmouseover="getMouseOver('Right')" onmouseout="getMouseOut('Right')">→</td>
           </tr>
           <tr class="controlTR" style="height:50px;">
@@ -355,8 +355,7 @@
         bufferCtx.fillRect(0, 0, canvas.width, canvas.height);
         displayShot()
         displayPlayer();
-        displayEnemy();;
-        checkHitPlayer();
+        displayEnemy();
         canvasCtx.drawImage(canvasBuffer, 0, 0);
         
 
@@ -500,11 +499,10 @@
     }
 
     function getMouseDown(key){		
-        if(key == "Ent" && !LoopStatred){ //enter
+        if(key == "Ent" && !LoopStarted){ //enter
             startGameLoop();
         }
     }
-
 
 
     //방향키
@@ -549,15 +547,14 @@
         }
             
     }
-
     function calcKeyInnput(){
-        if(keyPressOn["38"] && playerUnit.y >= -playerUnit.height/2)
+        if((keyPressOn["3738"] || keyPressOn["3938"] || keyPressOn["38"]) && playerUnit.y >= -playerUnit.height/4)
             playerUnit.y -= playerUnit.speed;  //up
-        if(keyPressOn["40"] && playerUnit.y <= canvas.height -playerUnit.height/2)
+        if((keyPressOn["3740"] || keyPressOn["3940"] || keyPressOn["40"]) && playerUnit.y <= canvas.height -playerUnit.height*0.75)
             playerUnit.y += playerUnit.speed;  //down
-        if(keyPressOn["37"] && playerUnit.x >= -playerUnit.width/2)
+        if((keyPressOn["3738"] || keyPressOn["3740"] || keyPressOn["37"]) && playerUnit.x >= -playerUnit.width/4)
             playerUnit.x -= playerUnit.speed;  //left
-        if(keyPressOn["39"] && playerUnit.x <= canvas.width -playerUnit.width/2)
+        if((keyPressOn["3938"] || keyPressOn["3940"] || keyPressOn["39"]) && playerUnit.x <= canvas.width -playerUnit.width*0.75)
             playerUnit.x += playerUnit.speed;  //right
     }
 </script>
