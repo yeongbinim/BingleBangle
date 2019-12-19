@@ -25,7 +25,6 @@
             display: block;
         }
         table{
-            display:block;
             padding-left: 0;
             padding-right: 0;
             margin-left: auto;
@@ -56,6 +55,7 @@
                     <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('RightDown')" ontouchend="getMouseOut('RightDown')" onmouseover="getMouseOver('RightDown')" onmouseout="getMouseOut('RightDown')">↘</td>
                 </tr>
             </tbody>
+            <input type="button" value="spacebar" onmousedown="getMouseDown('Spc')">
         </table>
     </div>
     
@@ -90,7 +90,7 @@
     var canvasCtx; // canvas의 렌더링 컨텍스트
     var canvasBuffer; // 버퍼를 위해 새로 만들 canvas
     var bufferCtx; // canvasBuffer의 렌더링 컨텍스트
-    var threadSpeed = 10; // setInterval 주기
+    var threadSpeed = 2; // setInterval 주기
     var playerUnit = {};//유저
     var shot = []; //총알
     var randomlocate;
@@ -247,10 +247,10 @@
     function setImage(){
     //이미지를 따오는 함수
         spacePlayer = new Image();
-        spacePlayer.src = "circle.jpg";
+        spacePlayer.src = "player.jpg";
         
         spaceShot = new Image();
-        spaceShot.src = "circle.jpg";
+        spaceShot.src = "shot.jpg";
 
         for(i=0;i<enemyUnit.length;i++){
             spaceEnemy[i] = new Image();
@@ -510,6 +510,9 @@
     function getMouseDown(key){		
         if(key == "Ent" && !LoopStarted){ //enter
             startGameLoop();
+        }
+        else if(key=="Spc" && !LoopStarted){
+            reversed*=-1
         }
     }
 
