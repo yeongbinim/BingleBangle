@@ -97,7 +97,7 @@
     var canvasCtx; // canvas의 렌더링 컨텍스트
     var canvasBuffer; // 버퍼를 위해 새로 만들 canvas
     var bufferCtx; // canvasBuffer의 렌더링 컨텍스트
-    var threadSpeed = 1; // setInterval 주기
+    var threadSpeed = 2; // setInterval 주기
     var playerUnit = {};//유저
     var shot = []; //총알
     var randomlocate;
@@ -238,7 +238,7 @@
 
 
         //루프돌리기
-        gameLoopThread = setInterval(gameLoop, threadSpeed);
+        gameLoop();
         LoopStarted = true;
 
     }
@@ -319,6 +319,7 @@
         displayAll();
         moveEnemy();
         moveShot();
+        gameLoopThread = setTimeout(gameLoop,threadSpeed);
     }
     function moveShot(){
         for(i=0;i<shot.length;i++){
