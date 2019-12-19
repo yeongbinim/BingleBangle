@@ -30,36 +30,43 @@
             margin-left: auto;
             margin-right: auto;
         }
+        #container{
+            display:grid;
+            grid-template-columns: 2fr 1fr;
+        }
     </style>
 </head>
 <body>
     <div class="alert" id="scoreboard">점수 : &nbsp;<br></div>
     <p><canvas id="canvas" width="600px" height="600px"></canvas></p>
     <div class="alert">Enter:게임시작, Spacebar:각 전환, 화살표방향키:이동</div>
-    <div class="controlLayer" id="controlLayer" style="visibility:hidden;">
-        <table style="width: 360px;">
-            <tbody>
-                <tr class="controlTR" style="height:50px;">
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('LeftUp')" ontouchend="getMouseOut('LeftUp')" onmouseover="getMouseOver('LeftUp')" onmouseout="getMouseOut('LeftUp')">↖</td>
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Up')" ontouchend="getMouseOut('Up')" onmouseover="getMouseOver('Up')" onmouseout="getMouseOut('Up')">↑</td>
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('RightUp')" ontouchend="getMouseOut('RightUp')" onmouseover="getMouseOver('RightUp')" onmouseout="getMouseOut('RightUp')">↗</td>
-                </tr>
-                <tr class="controlTR" style="height:50px;">
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Left')" ontouchend="getMouseOut('Left')" onmouseover="getMouseOver('Left')" onmouseout="getMouseOut('Left')">←</td>
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.7);width:120px; height : 120px; text-align:center;" onmousedown= "getMouseDown('Ent')">Ent</td>
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Right')" ontouchend="getMouseOut('Right')" onmouseover="getMouseOver('Right')" onmouseout="getMouseOut('Right')">→</td>
-                </tr>
-                <tr class="controlTR" style="height:50px;">
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('LeftDown')" ontouchend="getMouseOut('LeftDown')" onmouseover="getMouseOver('LeftDown')" onmouseout="getMouseOut('LeftDown')">↙</td>
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Down')" ontouchend="getMouseOut('Down')" onmouseover="getMouseOver('Down')" onmouseout="getMouseOut('Down')">↓</td>
-                    <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('RightDown')" ontouchend="getMouseOut('RightDown')" onmouseover="getMouseOver('RightDown')" onmouseout="getMouseOut('RightDown')">↘</td>
-                </tr>
-            </tbody>
-            <input type="button" value="spacebar" onmousedown="getMouseDown('Spc')">
-        </table>
+    <div id="container">
+        <div class="controlLayer" id="controlLayer" style="visibility:hidden;">
+            <table style="width: 360px;">
+                <tbody>
+                    <tr class="controlTR" style="height:50px;">
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('LeftUp')" ontouchend="getMouseOut('LeftUp')" onmouseover="getMouseOver('LeftUp')" onmouseout="getMouseOut('LeftUp')">↖</td>
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Up')" ontouchend="getMouseOut('Up')" onmouseover="getMouseOver('Up')" onmouseout="getMouseOut('Up')">↑</td>
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('RightUp')" ontouchend="getMouseOut('RightUp')" onmouseover="getMouseOver('RightUp')" onmouseout="getMouseOut('RightUp')">↗</td>
+                    </tr>
+                    <tr class="controlTR" style="height:50px;">
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Left')" ontouchend="getMouseOut('Left')" onmouseover="getMouseOver('Left')" onmouseout="getMouseOut('Left')">←</td>
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.7);width:120px; height : 120px; text-align:center;" onmousedown= "getMouseDown('Ent')">Ent</td>
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Right')" ontouchend="getMouseOut('Right')" onmouseover="getMouseOver('Right')" onmouseout="getMouseOut('Right')">→</td>
+                    </tr>
+                    <tr class="controlTR" style="height:50px;">
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('LeftDown')" ontouchend="getMouseOut('LeftDown')" onmouseover="getMouseOver('LeftDown')" onmouseout="getMouseOut('LeftDown')">↙</td>
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('Down')" ontouchend="getMouseOut('Down')" onmouseover="getMouseOver('Down')" onmouseout="getMouseOut('Down')">↓</td>
+                        <td class="controlTD" style="background-color:rgba(228, 127, 220, 0.432);width:120px; height : 120px; text-align:center;" ontouchstart="getMouseOver('RightDown')" ontouchend="getMouseOut('RightDown')" onmouseover="getMouseOver('RightDown')" onmouseout="getMouseOut('RightDown')">↘</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div style="font-size:100px;">&nbsp;</div>
+            <input type="button" value="space" style="width:120px; height:120px;" onmousedown="getMouseDown('Spc')">
+        </div>
     </div>
-    
-    
     
     <script>
         var window_width = window.innerWidth-70;
@@ -90,7 +97,7 @@
     var canvasCtx; // canvas의 렌더링 컨텍스트
     var canvasBuffer; // 버퍼를 위해 새로 만들 canvas
     var bufferCtx; // canvasBuffer의 렌더링 컨텍스트
-    var threadSpeed = 2; // setInterval 주기
+    var threadSpeed = 1; // setInterval 주기
     var playerUnit = {};//유저
     var shot = []; //총알
     var randomlocate;
@@ -511,7 +518,7 @@
         if(key == "Ent" && !LoopStarted){ //enter
             startGameLoop();
         }
-        else if(key=="Spc" && !LoopStarted){
+        else if(key=="Spc" && LoopStarted){
             reversed*=-1
         }
     }
